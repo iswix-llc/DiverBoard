@@ -22,10 +22,12 @@ Undo Divers Returning from Water
 
 Diverboard suppports a generic keyboard wedge style barcode scanner. These scanners can be hooked up via USB or USB dongle and simulate keyboard entry.  The following commands are supported and can be typed on the keyboard to simulate a barcode scanner if you do not yet have one.
 
-<C0> Command Mode Divers Entering Water
-<C1> Command Mode Undo Divers Entering Water
-<C2> Command Mode Divers Returning from Water
-<C3> Command Mode Undo Divers Returning from Water
+\<C0\> Command Mode Divers Entering Water
+\<C1\> Command Mode Undo Divers Entering Water
+\<C2\> Command Mode Divers Returning from Water
+\<C3\> Command Mode Undo Divers Returning from Water
   
-<BUNKNAME>  BUNKNAMES matching the list of bunk names you definded.  This takes the current command mode and applies it to said bunk/diver.
+\<BUNKNAME\>  BUNKNAMES matching the list of bunk names you definded.  This takes the current command mode and applies it to said bunk/diver the same as touching the bunk diver in the UI.
+
+You should generate a laminated sheet containing the command codes barcode labels and bunk labels.  You may also generetae diver tags if you'd rather scan the divers.  Contact us if you need assistance in generating these.
  
