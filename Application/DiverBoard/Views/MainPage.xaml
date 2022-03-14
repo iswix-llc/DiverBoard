@@ -1,0 +1,266 @@
+﻿<Page x:Class="DiverBoard.Views.MainPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+  xmlns:svc="clr-namespace:DiverBoard.Services"
+  xmlns:vm="clr-namespace:DiverBoard.ViewModels"
+  mc:Ignorable="d" 
+  d:DesignHeight="1280" d:DesignWidth="800"
+  Title="MainPage" Background="Navy">
+    <Page.DataContext>
+        <vm:TripViewModel x:Name="tripViewModel"/>
+    </Page.DataContext>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="120">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Command="{Binding BackCommand}" Background="Navy" Visibility="{Binding BackVisibility}">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Navy"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Navy"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Grid.Column="0" Source="../Resources/back-icon.png"></Image>
+                </Button>
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <Label Content="Diver Board" Foreground="Yellow" FontWeight="Bold" HorizontalAlignment="Center" FontSize="24"/>
+                    <Label Content="Copyright 2022 ISWIX LLC" Foreground="white" FontWeight="Bold" Margin="0,-10, 0, -5" HorizontalAlignment="Center" FontSize="12"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Content="Trip" Foreground="Yellow" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20"/>
+                        <Label Content="{Binding Trip.TripDate}" Foreground="Yellow" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Content="Dive #" Foreground="Yellow" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20"/>
+                        <Label Content="{Binding ActiveDive}" Foreground="Yellow" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Grid.Column="2" Command="{Binding ForwardCommand}" Background="Navy" Visibility="{Binding ForwardVisibility}">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Navy"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Navy"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="../Resources/forward-icon.png"></Image>
+                </Button>
+            </Grid>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom" Height="40">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="buttonSplash" Grid.Column="0" Width="35" Height="35" Foreground="white" Background="Transparent" Command="{Binding SplashCommand}" HorizontalAlignment="center">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Navy"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}"  BorderThickness="{Binding SplashBorder}" BorderBrush="White">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Navy" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="..\Resources\jump.png"></Image>
+                </Button>
+                <Button x:Name="buttonNoSplash" Grid.Column="1" Width="35" Height="35" Foreground="white" Background="Transparent" Command="{Binding UnSplashCommand}" HorizontalAlignment="center">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Navy"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}"  BorderThickness="{Binding UnSplashBorder}" BorderBrush="White">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Navy" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="..\Resources\unjump.png"></Image>
+                </Button>
+                <Button  x:Name="bottonClimb" Grid.Column="2" Width="35" Height="35" Foreground="white" Background="Transparent" BorderThickness="{Binding ClimbBorder}" BorderBrush="White" Command="{Binding ClimbCommand}" HorizontalAlignment="center">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Navy"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}"  BorderThickness="{Binding ClimbBorder}" BorderBrush="White">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Navy"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="..\Resources\climb.png"></Image>
+                </Button>
+                <Button  x:Name="bottonNoClimb" Grid.Column="3" Width="35" Height="35" Foreground="white" Background="Transparent" BorderThickness="{Binding ClimbBorder}" BorderBrush="White" Command="{Binding UnClimbCommand}" HorizontalAlignment="center">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Navy"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}"  BorderThickness="{Binding UnClimbBorder}" BorderBrush="White">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Navy"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="..\Resources\unclimb.png"></Image>
+                </Button>
+                <Button Grid.Column="4" Width="35" Height="35" Foreground="white" Background="Transparent" BorderThickness="0"  Command="{Binding NavigateConfigurePageCommand}" HorizontalAlignment="center">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Navy"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Navy"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="..\Resources\configure.png"></Image>
+                </Button>
+                <Button Grid.Column="5" Width="40" Height="40" Foreground="white" Background="Transparent" BorderThickness="0" Command="{Binding QuitCommand}" HorizontalAlignment="Center">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Navy"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Navy"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>                    <Image Source="..\Resources\power.png"></Image>
+                </Button>
+            </Grid>
+        </DockPanel>
+        <WrapPanel Loaded="WrapPanel_Loaded">
+            <ListBox Background="Navy" ItemsSource="{Binding Trip.OccupiedBunks}"  KeyboardNavigation.TabNavigation="Cycle">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical" IsItemsHost="True" >
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.Template>
+                    <ControlTemplate>
+                        <DockPanel>
+                            <ItemsPresenter></ItemsPresenter>
+                        </DockPanel>
+                    </ControlTemplate>
+                </ListBox.Template>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Focusable" Value="False"/>
+                        <Setter Property="IsTabStop" Value="False"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <ContentPresenter/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" FontSize="14" FontWeight="Bold" Content="{Binding Path=Value.BunkDiver}" Foreground="white" Background="navy" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <Button Grid.Column="1" FontSize="16" FontWeight="Bold" Foreground="black" Background="White" Content="{Binding Value.ActiveDive.Status}" Click="Button_Click" Height="80" Margin="5,5,5,5" HorizontalContentAlignment="Left" VerticalAlignment="Center"></Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </WrapPanel>
+    </DockPanel>
+</Page>

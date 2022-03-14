@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define ComponentRules="OneToOne"?>
+  <!-- SourceDir instructs IsWiX the location of the directory that contains files for this merge module -->
+  <?define SourceDir="..\Deploy"?>
+  <Module Id="DiverBoardMM" Language="1033" Version="1.0.0.0">
+    <Package Id="73720a31-4606-47fe-8b52-0b5d73ab3083" Manufacturer="DiverBoardMM" InstallerVersion="200" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="DesktopFolder" />
+      <Directory Id="MergeRedirectFolder">
+        <Component Id="owcB5BE090C8D77390399E96FC92A5D9885" Guid="40191a08-12ae-6dc1-15b8-53cc43936c1a">
+          <File Id="owfB5BE090C8D77390399E96FC92A5D9885" Source="$(var.SourceDir)\DiverBoard.deps.json" KeyPath="yes" />
+        </Component>
+        <Component Id="owcCA844BD8C8A68DDFB1C9D3C49C90C19F" Guid="4b481bd1-89fa-58cc-e660-355e6243cf14">
+          <File Id="owfCA844BD8C8A68DDFB1C9D3C49C90C19F" Source="$(var.SourceDir)\DiverBoard.dll" KeyPath="yes" />
+        </Component>
+        <Component Id="owcC0DBC290FF93FE5A25CD6B1857BD057F" Guid="2b5f4107-5f1b-5c1b-317e-3ab7caf502d8">
+          <File Id="owfC0DBC290FF93FE5A25CD6B1857BD057F" Source="$(var.SourceDir)\DiverBoard.exe" KeyPath="yes">
+            <Shortcut Id="sc9930801AD584A39020864550E1B0221B" Name="DiverBoard" Directory="DesktopFolder" />
+          </File>
+        </Component>
+        <Component Id="owc807C6EEB581E39F46F3016C89DC1C989" Guid="8d3bc040-32c5-d105-bc02-af0e48df1e33">
+          <File Id="owf807C6EEB581E39F46F3016C89DC1C989" Source="$(var.SourceDir)\DiverBoard.runtimeconfig.json" KeyPath="yes" />
+        </Component>
+        <Component Id="owcB8113C68D3D05739828AB593ECF59CD5" Guid="e7568075-9721-76c7-9e45-e9e0597bff2d">
+          <File Id="owfB8113C68D3D05739828AB593ECF59CD5" Source="$(var.SourceDir)\System.Management.dll" KeyPath="yes" />
+        </Component>
+        <Directory Id="owd0B547FFEC73B78F0A8226D2405564F5D" Name="Resources">
+          <Component Id="owcDE8BEFBC7FC766DD7A748D8C50773608" Guid="7542d4a7-41f3-9b1c-a77b-b0047163c637">
+            <File Id="owfDE8BEFBC7FC766DD7A748D8C50773608" Source="$(var.SourceDir)\Resources\back-icon.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owcCA56B2A834B9936FAADBD31F5911DDD4" Guid="c9768e1d-c5b5-a7f0-dbb0-b05ff7f86a6e">
+            <File Id="owfCA56B2A834B9936FAADBD31F5911DDD4" Source="$(var.SourceDir)\Resources\cancel.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owc6B346591AC3AB5ED65951B1005584ADA" Guid="d204c7f8-d273-a5bf-6c05-d9cc12bf9533">
+            <File Id="owf6B346591AC3AB5ED65951B1005584ADA" Source="$(var.SourceDir)\Resources\climb.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owcF0B82D163DB9CA40031CB223121987CD" Guid="8c5bd021-a7de-6260-5589-a3e1a289267f">
+            <File Id="owfF0B82D163DB9CA40031CB223121987CD" Source="$(var.SourceDir)\Resources\configure.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owc301B842F3D86C1C9DB80CA17C04428DB" Guid="f5131f5c-f9b7-f5f9-5e35-9f76812b2dc3">
+            <File Id="owf301B842F3D86C1C9DB80CA17C04428DB" Source="$(var.SourceDir)\Resources\forward-icon.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owc6647644133A1BF2FFFBC97192C812D8C" Guid="daca3430-084b-7346-f119-effb65ea6a48">
+            <File Id="owf6647644133A1BF2FFFBC97192C812D8C" Source="$(var.SourceDir)\Resources\home.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owc5AEAFCA224920C4951EDF67BAD2F33A7" Guid="de1e5ff6-c152-2f2e-9505-dd7747dbb9c0">
+            <File Id="owf5AEAFCA224920C4951EDF67BAD2F33A7" Source="$(var.SourceDir)\Resources\jump.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owcA186171142CA0AD4A92793AA76045607" Guid="f037fda6-3af8-b624-bcc0-73540771818f">
+            <File Id="owfA186171142CA0AD4A92793AA76045607" Source="$(var.SourceDir)\Resources\new.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owcC706D51234558E07D1094E61A055492A" Guid="3977a6c4-13ca-8a96-7826-1f8f9603557f">
+            <File Id="owfC706D51234558E07D1094E61A055492A" Source="$(var.SourceDir)\Resources\ok.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owc64D397849BBA9E27CD1A85160AAA3C3F" Guid="c65a12fe-94e0-716a-589b-bbb47cccd700">
+            <File Id="owf64D397849BBA9E27CD1A85160AAA3C3F" Source="$(var.SourceDir)\Resources\open.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owcB67765A33E24A4845A3B715110588A26" Guid="1e2ec25c-0696-bd83-38d8-7c4fb9ce63a2">
+            <File Id="owfB67765A33E24A4845A3B715110588A26" Source="$(var.SourceDir)\Resources\power.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owc05634730D68BDDF25402C432DCD6B37B" Guid="51f43a96-1280-0050-04e7-643738676f22">
+            <File Id="owf05634730D68BDDF25402C432DCD6B37B" Source="$(var.SourceDir)\Resources\thumbdrive.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owcE2E0569F2A77D6559F2C7E6C07B104E7" Guid="76d5ca6a-c761-8f1c-bf61-9ab9cc0a2067">
+            <File Id="owfE2E0569F2A77D6559F2C7E6C07B104E7" Source="$(var.SourceDir)\Resources\unclimb.png" KeyPath="yes" />
+          </Component>
+          <Component Id="owc3036CB6D6CC193AD31F4FA6F8D9C5C7F" Guid="2a56aa40-9173-b217-e00b-e595df6feac6">
+            <File Id="owf3036CB6D6CC193AD31F4FA6F8D9C5C7F" Source="$(var.SourceDir)\Resources\unjump.png" KeyPath="yes" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+    <ComponentGroupRef Id="Custom" />
+  </Module>
+</Wix>
