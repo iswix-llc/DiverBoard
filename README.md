@@ -31,3 +31,15 @@ Diverboard suppports a generic keyboard wedge style barcode scanner. These scann
 
 You should generate a laminated sheet containing the command codes barcode labels and bunk labels.  You may also generetae diver tags if you'd rather scan the divers.  Contact us if you need assistance in generating these.
  
+## Screenshots ##
+
+![Create Trip](images/diverboard_createtrip.png)
+
+![Embark Customers](images/diveboard_embark_customers.png)
+
+![Diver In](images/diveboard_diverin.png)
+
+![Diver Out](images/diveboard_diverout.png)
+
+![Diver Out](images/diveboard_diveprofile.png)
+
