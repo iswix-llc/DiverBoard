@@ -492,7 +492,7 @@ namespace DiverBoard.ViewModels
                 default:
                     if (Trip.Bunks.ContainsKey(command))
                     {
-                        ProcessButtonClick(Trip.Bunks[command]);
+                        ProcessButtonClick(Trip.Bunks[command], true);
                     }
                     else
                     {
@@ -503,7 +503,7 @@ namespace DiverBoard.ViewModels
             }
         }
 
-        public void ProcessButtonClick(Bunk bunk)
+        public void ProcessButtonClick(Bunk bunk, bool scan)
         {
 
             int activeDive = DataService.Instance.Trip.ActiveDive;
@@ -545,8 +545,11 @@ namespace DiverBoard.ViewModels
                     }
                     else
                     {
-                        DiverDetail diverDetail = new DiverDetail(bunk, dive);
-                        diverDetail.ShowDialog();
+                        if (!scan)
+                        {
+                            DiverDetail diverDetail = new DiverDetail(bunk, dive);
+                            diverDetail.ShowDialog();
+                        }
                     }
                 }
                 else

@@ -20,8 +20,8 @@ namespace DiverBoard
     /// </summary>
     public partial class MainWindow : Window
     {
-        const string BEGINTEXT = "<";
-        const string ENDTEXT = ">";
+        const string BEGINTEXT = "Y";
+        const string ENDTEXT = "Z";
         StringBuilder _command;
 
         private void Window_PreviewTextInput(object sender, TextCompositionEventArgs e)

@@ -25,7 +25,7 @@ namespace DiverBoard.Views
             Button button = sender as Button;
             dynamic dc = button.DataContext;
             Bunk bunk = dc.Value;
-            tripViewModel.ProcessButtonClick(bunk);
+            tripViewModel.ProcessButtonClick(bunk, false);
         }
 
 
