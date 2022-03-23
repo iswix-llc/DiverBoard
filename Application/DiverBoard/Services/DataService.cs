@@ -72,6 +72,10 @@ namespace DiverBoard.Services
             string json = File.ReadAllText(filePath);
             SettingsService.LastDocument = filePath;
             Trip = JsonSerializer.Deserialize<Trip>(json);
+
+            var bunkNames = from b in Trip.Bunks select b.Value.BunkNumber;
+            QRCodesService.GenerateQRCodes(bunkNames.ToList());
+
         }
         public void Save()
         {

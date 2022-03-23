@@ -13,6 +13,9 @@ namespace DiverBoard.Services
     {
         public static string TripsDirectory { get { return @"C:\DiveBoard\trips"; } }
         public static string ConfigDirectory { get { return @"C:\DiveBoard\config"; } }
+        public static string QRCodesDirectory { get { return @"C:\DiveBoard\config\QRCodes"; } }
+
+
         public static string LastDocument 
         {
             get

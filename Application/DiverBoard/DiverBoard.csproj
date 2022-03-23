@@ -85,6 +85,7 @@
     <Content Include="Resources\unjump.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="System.Management" Version="6.0.0" />
   </ItemGroup>
 

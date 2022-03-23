@@ -477,16 +477,16 @@ namespace DiverBoard.ViewModels
         {
             switch(command.ToUpper())
             {
-                case "C1":
+                case "COMMAND-SPLASH":
                     Splash();
                     break;
-                case "C2":
+                case "COMMAND-UNSPLASH":
                     UnSplash();
                     break;
-                case "C3":
+                case "COMMAND-CLIMB":
                     Climb();
                     break;
-                case "C4":
+                case "COMMAND-UNCLIMB":
                     UnClimb();
                     break;
                 default:
