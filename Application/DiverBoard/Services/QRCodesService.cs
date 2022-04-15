@@ -26,7 +26,7 @@ namespace DiverBoard.Services
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode($"Y{bunk}Z", QRCodeGenerator.ECCLevel.Q);
                 QRCode qrCode = new QRCode(qrCodeData);
-                Bitmap qrCodeImage = qrCode.GetGraphic(20);
+                Bitmap qrCodeImage = qrCode.GetGraphic(4);
                 qrCodeImage.Save(Path.Combine(qrCodesDirectory, $"{bunk}.png"));
             }
         }
