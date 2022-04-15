@@ -22,6 +22,9 @@
         <Component Id="owc807C6EEB581E39F46F3016C89DC1C989" Guid="8d3bc040-32c5-d105-bc02-af0e48df1e33">
           <File Id="owf807C6EEB581E39F46F3016C89DC1C989" Source="$(var.SourceDir)\DiverBoard.runtimeconfig.json" KeyPath="yes" />
         </Component>
+        <Component Id="owc0E3804041854073D34BD4FC6384E7D2D" Guid="03c5de29-db56-16e9-0276-2aa2a868228d">
+          <File Id="owf0E3804041854073D34BD4FC6384E7D2D" Source="$(var.SourceDir)\QRCoder.dll" KeyPath="yes" />
+        </Component>
         <Component Id="owcB8113C68D3D05739828AB593ECF59CD5" Guid="e7568075-9721-76c7-9e45-e9e0597bff2d">
           <File Id="owfB8113C68D3D05739828AB593ECF59CD5" Source="$(var.SourceDir)\System.Management.dll" KeyPath="yes" />
         </Component>
